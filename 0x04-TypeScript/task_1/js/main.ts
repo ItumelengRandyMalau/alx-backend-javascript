@@ -1,26 +1,12 @@
-// Define the Teacher interface
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [propName: string]: any;
+// Define the printTeacherFunction interface
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
 }
 
-// Define the Directors interface that extends Teacher
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-
-// Create an object of type Directors
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
+// Implement the printTeacher function
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-// Log the director1 object to the console
-console.log(director1);
+// Example usage
+console.log(printTeacher("John", "Doe")); // Should print: J. Doe
