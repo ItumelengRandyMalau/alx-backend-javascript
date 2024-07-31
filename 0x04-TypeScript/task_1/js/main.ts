@@ -1,4 +1,5 @@
-interface Teacher{
+// Define the Teacher interface
+interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
@@ -7,13 +8,19 @@ interface Teacher{
   [propName: string]: any;
 }
 
-// Example usage:
-const teacher3: Teacher = {
+// Define the Directors interface that extends Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// Create an object of type Directors
+const director1: Directors = {
   firstName: 'John',
-  fullTimeEmployee: false,
   lastName: 'Doe',
   location: 'London',
-  contract: false,
+  fullTimeEmployee: true,
+  numberOfReports: 17,
 };
 
-console.log(teacher3);
+// Log the director1 object to the console
+console.log(director1);
